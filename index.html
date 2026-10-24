@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5b4bdb">
+<title>تحدّي المهارات الرقمية | مراجعة تفاعلية</title>
+<style>
+:root{--ink:#1d2440;--muted:#68708a;--primary:#5b4bdb;--primary2:#8b5cf6;--mint:#d9fbef;--pink:#ffe4ef;--yellow:#fff1bd;--blue:#e2f1ff;--paper:#fff;--line:#e8e9f4;--good:#087f5b;--bad:#b4234d}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 8% 5%,#ffe4ef 0,transparent 24%),radial-gradient(circle at 95% 15%,#d9fbef 0,transparent 25%),#f6f7ff;line-height:1.7}
+header{padding:26px 18px 18px;text-align:center}.logo{display:inline-grid;place-items:center;width:62px;height:62px;border-radius:20px;background:linear-gradient(135deg,var(--primary),var(--primary2));color:white;font-size:30px;box-shadow:0 10px 25px #5b4bdb35}
+h1{margin:10px 0 2px;font-size:clamp(25px,4vw,38px)}header p{margin:0;color:var(--muted)}.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{background:white;border:1px solid var(--line);border-radius:99px;padding:5px 12px;font-size:13px}
+main{max-width:1000px;margin:auto;padding:0 16px 44px}.panel{background:#ffffffeb;border:1px solid var(--line);border-radius:24px;padding:clamp(17px,3vw,28px);box-shadow:0 12px 35px #33345c0a;margin:15px 0}.step{display:flex;gap:10px;align-items:center;margin:0 0 15px;font-size:21px}.step b{display:grid;place-items:center;min-width:35px;height:35px;border-radius:12px;background:var(--yellow)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-weight:bold;font-size:14px}.field input,.field select{width:100%;padding:13px;border:1px solid #dfe1ef;border-radius:13px;background:white;font:inherit;color:var(--ink)}
+.btn{border:0;border-radius:13px;padding:12px 18px;font:inherit;font-weight:bold;cursor:pointer;transition:.15s}.btn:hover{transform:translateY(-1px)}.primary{color:white;background:linear-gradient(120deg,var(--primary),var(--primary2));box-shadow:0 7px 16px #5b4bdb28}.soft{background:#f0edff;color:var(--primary)}.light{background:white;border:1px solid var(--line);color:var(--ink)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.note{font-size:13px;color:var(--muted)}.hidden{display:none!important}
+.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}.lesson{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}.lesson input{margin-top:7px;accent-color:var(--primary);width:17px;height:17px}.lesson strong{display:block}.lesson small{color:var(--muted)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.progress{height:9px;border-radius:20px;background:#eeeefa;overflow:hidden;margin:14px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,#28c99b,#5b4bdb);width:0;transition:width .2s}
+.question-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px}.question{font-size:22px;font-weight:bold;margin:14px 0}.answers{display:grid;gap:10px}.answer{display:flex;align-items:center;gap:10px;text-align:right;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:white;cursor:pointer;font:inherit}.answer .letter{display:grid;place-items:center;min-width:31px;height:31px;border-radius:10px;background:#f0edff;color:var(--primary);font-weight:bold}.answer.selected{border-color:var(--primary);background:#f7f5ff}.answer.correct{border-color:#1aa879;background:#e8fff6}.answer.wrong{border-color:#e75d80;background:#fff0f4}.feedback{margin-top:14px;padding:13px 15px;border-radius:14px;background:#f4f5fb}.feedback.good{background:#e8fff6;color:#075d44}.feedback.bad{background:#fff0f4;color:#8e1939}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.stat{padding:16px;border-radius:17px;text-align:center;background:#f6f4ff}.stat strong{display:block;font-size:27px;color:var(--primary)}.stat:nth-child(2){background:#e9fff6}.stat:nth-child(3){background:#fff3d0}
+.review-item{padding:13px 0;border-bottom:1px solid var(--line)}.review-item:last-child{border:0}.review-item p{margin:4px 0}.correct-text{color:var(--good);font-weight:bold}.wrong-text{color:var(--bad);font-weight:bold}
+.certificate{background:white;border:9px double #d6b85a;border-radius:10px;padding:28px;text-align:center;max-width:780px;margin:20px auto;color:#27244c;position:relative}.certificate:before{content:"✦";font-size:25px;color:#c5a23e}.certificate h2{font-size:32px;color:#4f43b8;margin:3px 0}.certificate .student{font-size:27px;font-weight:bold;color:#a15c9d;border-bottom:2px dotted #d7c3e5;display:inline-block;min-width:220px;padding:0 15px 5px}.cert-foot{display:flex;justify-content:space-around;gap:12px;flex-wrap:wrap;margin-top:20px}.cert-foot div{min-width:110px}.cert-foot strong{display:block;font-size:19px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:12px}
+@media(max-width:550px){.question{font-size:19px}.panel{border-radius:19px}.certificate{padding:16px;border-width:6px}.certificate h2{font-size:25px}}
+@media print{body{background:white}.no-print,header,footer,#setup,#lessonPanel,#quizPanel,#resultPanel{display:none!important}#certificatePanel{display:block!important;border:0;box-shadow:none;padding:0;margin:0}.certificate{max-width:none;margin:0;min-height:175mm;display:flex;flex-direction:column;justify-content:center;page-break-inside:avoid}.certificate .student{min-width:300px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">💻</div>
+  <h1>تحدّي المهارات الرقمية</h1>
+  <p>راجعي المفاهيم النظرية، اختبري معرفتك، واحتفلي بإنجازك!</p>
+  <div class="chips"><span class="chip">✨ تصحيح فوري</span><span class="chip">📚 دروس متعددة</span><span class="chip">🏆 شهادة إنجاز</span><span class="chip">🔒 دون تسجيل دخول</span></div>
+</header>
+<main>
+<section id="setup" class="panel">
+  <h2 class="step"><b>١</b> ابدئي رحلتك</h2>
+  <div class="grid">
+    <div class="field"><label for="studentName">اسم الطالبة (مطلوب للشهادة)</label><input id="studentName" maxlength="70" placeholder="اكتبي اسمك الكامل"></div>
+    <div class="field"><label for="grade">الصف الدراسي</label><select id="grade"><option value="">اختاري الصف</option><option value="1">الأول المتوسط</option><option value="2">الثاني المتوسط</option><option value="3">الثالث المتوسط</option></select></div>
+    <div class="field"><label for="semester">الفصل الدراسي</label><select id="semester"><option value="1">الفصل الدراسي الأول</option><option value="2">الفصل الدراسي الثاني</option></select></div>
+  </div>
+  <p class="note">اختاري الصف والفصل أولًا، ثم حددي الدروس التي تريدين مراجعتها. تُحفظ النتيجة على هذا الجهاز فقط.</p>
+  <div class="actions"><button class="btn primary" id="showLessons">عرض الوحدات والدروس ←</button><button class="btn light" id="resumeBtn">استعادة آخر نتيجة</button></div>
+</section>
+
+<section id="lessonPanel" class="panel hidden">
+  <h2 class="step"><b>٢</b> اختاري الوحدات والدروس</h2>
+  <p id="lessonIntro">يمكنك اختيار درس واحد أو عدة دروس أو جميع الدروس.</p>
+  <div class="tools"><button class="btn soft" id="selectAll">✓ تحديد الكل</button><button class="btn light" id="clearAll">إلغاء التحديد</button></div>
+  <div id="lessons" class="lessons"></div>
+  <div class="actions"><button class="btn primary" id="startQuiz">ابدئي الاختبار ←</button><button class="btn light" id="backSetup">رجوع</button></div>
+  <p class="note">ملاحظة: بنك الأسئلة المرفق في هذه النسخة أسئلة تجريبية أولية قابلة للاستبدال أو التوسعة حسب كتب المنهج المعتمدة.</p>
+</section>
+
+<section id="quizPanel" class="panel hidden">
+  <div class="question-meta"><span id="qCount">السؤال 1</span><span id="qTopic"></span></div>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div id="questionText" class="question"></div>
+  <div id="answers" class="answers"></div>
+  <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+  <div class="actions"><button class="btn light" id="prevQuestion">→ السابق</button><button class="btn primary" id="nextQuestion">التالي ←</button><button class="btn soft" id="finishQuiz">إنهاء وعرض النتيجة</button></div>
+</section>
+
+<section id="resultPanel" class="panel hidden">
+  <h2 class="step"><b>٣</b> نتيجتك النهائية 🎉</h2>
+  <div class="stats">
+    <div class="stat"><strong id="scoreStat">0/0</strong><span>الإجابات الصحيحة</span></div>
+    <div class="stat"><strong id="percentStat">0%</strong><span>نسبة الإنجاز</span></div>
+    <div class="stat"><strong id="wrongStat">0</strong><span>تحتاج إلى مراجعة</span></div>
+  </div>
+  <h3>مراجعة الأسئلة والإجابات</h3>
+  <div id="review"></div>
+  <div class="actions no-print"><button class="btn primary" id="makeCertificate">🏆 إصدار شهادة الإنجاز</button><button class="btn soft" id="retry">↻ إعادة الاختبار</button><button class="btn light" id="printResult">طباعة النتيجة</button><button class="btn light" id="newSelection">اختيار دروس أخرى</button></div>
+</section>
+
+<section id="certificatePanel" class="panel hidden">
+  <div class="no-print"><h2 class="step"><b>٤</b> شهادة الإنجاز</h2><p>يمكنك طباعة الشهادة ثم اختيار «حفظ بصيغة PDF» من نافذة الطباعة.</p></div>
+  <div class="certificate" id="certificate">
+    <div style="font-size:17px;letter-spacing:2px;color:#9a7b2e">شهادة تميّز وإنجاز</div>
+    <h2>شهادة إنجاز</h2>
+    <p>تُمنح هذه الشهادة للطالبة</p>
+    <div class="student" id="certName">اسم الطالبة</div>
+    <p>لإتمامها اختبار مراجعة المهارات الرقمية بنجاح، وإظهار اهتمامها بالتعلم والتطوير.</p>
+    <div class="cert-foot"><div>الصف<strong id="certGrade">—</strong></div><div>نسبة الإنجاز<strong id="certPercent">—</strong></div><div>التاريخ<strong id="certDate">—</strong></div></div>
+    <p style="margin-top:28px;color:#9a7b2e">🌟 بالتعلّم نصنع المستقبل 🌟</p>
+  </div>
+  <div class="actions no-print"><button class="btn primary" id="printCertificate">🖨️ طباعة / حفظ PDF</button><button class="btn light" id="backResults">العودة للنتيجة</button></div>
+</section>
+</main>
+<footer>مراجعة تعليمية مستقلة · لا يُعرض اسم معلمة أو مدرسة · يمكن تخصيص بنك الأسئلة داخل ملف index.html</footer>
+<script>
+const bank = [
+{g:1,s:1,u:"المواطنة الرقمية",l:"الأمان الرقمي",q:"ما أفضل طريقة لحماية حسابك الإلكتروني؟",a:["استخدام كلمة مرور قوية وفريدة","مشاركة كلمة المرور مع الصديقات","استخدام كلمة المرور نفسها لكل المواقع","كتابة كلمة المرور في مكان عام"],c:0,e:"كلمة المرور القوية والفريدة تقلل احتمال الوصول غير المصرح به."},
+{g:1,s:1,u:"المواطنة الرقمية",l:"الخصوصية",q:"أي المعلومات التالية يُفضّل عدم نشرها علنًا؟",a:["لونك المفضل","عنوان المنزل ورقم الهاتف","اسم كتاب تحبينه","رسم من إنجازك"],c:1,e:"البيانات الشخصية مثل العنوان ورقم الهاتف يجب حمايتها."},
+{g:1,s:1,u:"الحاسب والملفات",l:"أنواع الملفات",q:"ما فائدة امتداد الملف مثل ‎.pdf أو ‎.jpg؟",a:["توضيح نوع الملف","زيادة سرعة الإنترنت","حماية الجهاز من كل الفيروسات","تغيير لغة الجهاز"],c:0,e:"يساعد امتداد الملف على معرفة نوعه والتطبيق المناسب لفتحه."},
+{g:1,s:1,u:"الحاسب والملفات",l:"تنظيم الملفات",q:"ما التصرف الأنسب لتسهيل العثور على الملفات؟",a:["حفظها جميعًا على سطح المكتب دون أسماء","استخدام مجلدات وأسماء واضحة","حذف الملفات كل يوم","تغيير أسماء الملفات عشوائيًا"],c:1,e:"المجلدات والتسميات الواضحة تجعل تنظيم الملفات والبحث عنها أسهل."},
+{g:1,s:1,u:"الإنترنت",l:"البحث الآمن",q:"عند البحث عن معلومة دراسية، ما الأفضل؟",a:["الاعتماد على أول نتيجة دائمًا","التحقق من موثوقية المصدر وتاريخ المعلومات","نسخ أي معلومة دون مراجعتها","تجاهل اسم الموقع"],c:1,e:"تقييم المصدر ومقارنة المعلومات يساعدان على الوصول إلى معلومات موثوقة."},
+{g:1,s:2,u:"البرمجة والتفكير الحاسوبي",l:"الخوارزميات",q:"ما المقصود بالخوارزمية؟",a:["مجموعة خطوات مرتبة لحل مشكلة","صورة على الحاسوب فقط","نوع من الطابعات","ملف صوتي"],c:0,e:"الخوارزمية خطوات منظمة تؤدي إلى حل مشكلة أو تنفيذ مهمة."},
+{g:1,s:2,u:"البرمجة والتفكير الحاسوبي",l:"التتابع",q:"في الخوارزمية، ماذا يعني التتابع؟",a:["تنفيذ الخطوات بترتيب محدد","اختيار خطوات عشوائية","إيقاف البرنامج دائمًا","تكرار كل خطوة بلا نهاية"],c:0,e:"التتابع يعني تنفيذ التعليمات بالترتيب المحدد."},
+{g:1,s:2,u:"البيانات والمعلومات",l:"الجداول",q:"لماذا نستخدم الجداول لتنظيم البيانات؟",a:["لتسهيل قراءتها ومقارنتها","لإخفاء البيانات نهائيًا","لمنع حفظ الملف","لزيادة حجم الشاشة"],c:0,e:"تنظيم البيانات في صفوف وأعمدة يجعل قراءتها وتحليلها أسهل."},
+{g:2,s:1,u:"الأمن السيبراني",l:"التصيد الإلكتروني",q:"وصلتك رسالة تطلب كلمة المرور عبر رابط مجهول، ماذا تفعلين؟",a:["أدخل كلمة المرور بسرعة","أرسل الرابط لصديقاتي","أتجاهل الرابط وأتحقق من الجهة عبر قناة رسمية","أعيد إرسال الرسالة للجميع"],c:2,e:"قد تكون الرسالة محاولة تصيد؛ تحققي من الجهة ولا تدخلي بياناتك في رابط مشبوه."},
+{g:2,s:1,u:"الأمن السيبراني",l:"البرمجيات الضارة",q:"ما وظيفة برنامج مكافحة البرمجيات الضارة؟",a:["اكتشاف البرمجيات الضارة والمساعدة في إزالتها","إنشاء كلمات مرور للآخرين","زيادة سطوع الشاشة","تصميم العروض فقط"],c:0,e:"تساعد أدوات الحماية على اكتشاف التهديدات وتقليل مخاطرها."},
+{g:2,s:1,u:"البيانات",l:"النسخ الاحتياطي",q:"ما الهدف الأساسي من النسخ الاحتياطي؟",a:["استعادة الملفات عند فقدانها","حذف الملفات الأصلية دائمًا","إبطاء الجهاز","منع مشاركة الملفات"],c:0,e:"تتيح النسخة الاحتياطية استعادة البيانات عند الحذف أو التلف."},
+{g:2,s:1,u:"الإنترنت",l:"الخدمات السحابية",q:"ما ميزة حفظ الملفات في خدمة سحابية موثوقة؟",a:["إمكانية الوصول إليها من أجهزة مختلفة وفق الصلاحيات","عدم الحاجة إلى أي حماية","جعل الملفات عامة تلقائيًا","إلغاء الحاجة إلى الإنترنت في كل الحالات"],c:0,e:"تتيح الخدمات السحابية الوصول للملفات عبر الإنترنت مع مراعاة إعدادات الأمان."},
+{g:2,s:2,u:"التفكير الحاسوبي",l:"الشروط",q:"ما استخدام الشرط في البرنامج؟",a:["اتخاذ قرار بناءً على تحقق حالة","تغيير لون الجهاز دائمًا","حذف جميع المتغيرات","إيقاف الحاسوب نهائيًا"],c:0,e:"يسمح الشرط بتنفيذ مسار معين إذا تحققت حالة محددة."},
+{g:2,s:2,u:"البرمجة",l:"المتغيرات",q:"ما المقصود بالمتغير في البرمجة؟",a:["مكان لتخزين قيمة يمكن استخدامها أو تغييرها","جهاز إدخال","نوع من أنواع الشاشة","اتصال إنترنت"],c:0,e:"يُستخدم المتغير لتخزين بيانات قد تتغير أثناء تنفيذ البرنامج."},
+{g:2,s:2,u:"البيانات",l:"تمثيل البيانات",q:"أي مما يلي مثال على بيانات رقمية؟",a:["عدد الطالبات في الفصل","رائحة الزهرة","صوت المطر فقط","لون السماء بوصف لغوي"],c:0,e:"عدد الطالبات قيمة عددية يمكن تسجيلها وتحليلها."},
+{g:3,s:1,u:"المواطنة الرقمية والأمن",l:"الهوية الرقمية",q:"ما المقصود بالهوية الرقمية؟",a:["المعلومات والسمات التي تمثل الشخص في البيئة الرقمية","نوع من أنواع الطابعات","كلمة مرور واحدة فقط","ملف لا يمكن تغييره"],c:0,e:"تتكون الهوية الرقمية من معلومات وآثار مرتبطة بالشخص في البيئات الرقمية."},
+{g:3,s:1,u:"المواطنة الرقمية والأمن",l:"حقوق النشر",q:"قبل استخدام صورة من الإنترنت في مشروع، ما التصرف الصحيح؟",a:["التحقق من الترخيص وذكر المصدر عند الحاجة","اعتبار كل الصور مباحة دائمًا","حذف اسم المصور","بيع الصورة على أنها من عملي"],c:0,e:"يجب احترام حقوق النشر وشروط الاستخدام والإشارة إلى المصدر عند اللزوم."},
+{g:3,s:1,u:"تحليل البيانات",l:"التمثيل البياني",q:"متى يكون المخطط البياني مفيدًا؟",a:["عند مقارنة القيم أو ملاحظة الاتجاهات","عند إخفاء جميع القيم","عند استبدال كل البيانات بكلمة واحدة","عند منع قراءة النتائج"],c:0,e:"تساعد المخططات على تلخيص البيانات وإظهار المقارنات والاتجاهات."},
+{g:3,s:1,u:"الذكاء الاصطناعي",l:"الاستخدام المسؤول",q:"عند الاستفادة من إجابة أداة ذكاء اصطناعي، ماذا ينبغي فعله؟",a:["التحقق من صحتها ومراعاة الخصوصية","نسخها دون فهم أو مراجعة","إدخال كلمات المرور الخاصة","افتراض أن كل إجابة صحيحة"],c:0,e:"قد تخطئ أدوات الذكاء الاصطناعي؛ لذا يجب التحقق من المعلومات وعدم مشاركة بيانات حساسة."},
+{g:3,s:2,u:"البرمجة والتطبيقات",l:"اختبار البرامج",q:"لماذا نختبر البرنامج بعد إنشائه؟",a:["للكشف عن الأخطاء والتأكد من عمله كما ينبغي","لزيادة الأخطاء عمدًا","لمنع المستخدم من تشغيله","لحذف التعليمات الصحيحة"],c:0,e:"يساعد الاختبار على اكتشاف الأخطاء وتحسين موثوقية البرنامج."},
+{g:3,s:2,u:"قواعد البيانات",l:"تنظيم السجلات",q:"في قاعدة البيانات، ماذا يمثل السجل عادةً؟",a:["مجموعة حقول تصف عنصرًا واحدًا","مجموعة أجهزة متصلة","تعليمة طباعة فقط","نوع من أنواع الفيروسات"],c:0,e:"السجل يجمع حقولًا تصف عنصرًا أو كيانًا واحدًا مثل بيانات طالبة."},
+{g:3,s:2,u:"الشبكات والإنترنت",l:"التواصل الرقمي",q:"ما السلوك المناسب عند المشاركة في نقاش رقمي؟",a:["احترام الآخرين والتحقق من المعلومات قبل نشرها","نشر معلومات الآخرين الخاصة","استخدام ألفاظ مسيئة","إعادة نشر الشائعات"],c:0,e:"المواطنة الرقمية تشمل الاحترام والمسؤولية والتحقق من المعلومات."}
+];
+const $=id=>document.getElementById(id);
+const panels=["setup","lessonPanel","quizPanel","resultPanel","certificatePanel"];
+let selected=[],quiz=[],answers={},index=0,lastResult=null;
+function showPanel(id){panels.forEach(p=>$(p).classList.toggle("hidden",p!==id));window.scrollTo({top:0,behavior:"smooth"});}
+function gradeLabel(g){return ({"1":"الأول المتوسط","2":"الثاني المتوسط","3":"الثالث المتوسط"})[g]||"—";}
+function currentGrade(){return $("grade").value;}
+function topicKey(q){return q.u+" — "+q.l;}
+function listForSelection(){const g=currentGrade(),s=$("semester").value;return bank.filter(q=>String(q.g)===g&&String(q.s)===s);}
+function renderLessons(){
+ const items=listForSelection();const groups={};
+ items.forEach(q=>{const key=q.u+"|"+q.l;groups[key]={u:q.u,l:q.l};});
+ const container=$("lessons");container.innerHTML="";
+ Object.entries(groups).forEach(([key,item])=>{
+  const count=items.filter(q=>q.u===item.u&&q.l===item.l).length;
+  const label=document.createElement("label");label.className="lesson";
+  label.innerHTML=`<input type="checkbox" value="${key.replaceAll('"','&quot;')}"><span><strong>${item.u}</strong><small>${item.l} · ${count} سؤال تجريبي</small></span>`;
+  container.appendChild(label);
+ });
+ if(!Object.keys(groups).length)container.innerHTML='<p>لا توجد أسئلة تجريبية لهذا الاختيار بعد. يمكنك إضافة الأسئلة في ملف index.html.</p>';
+ $("lessonIntro").textContent=`${gradeLabel(currentGrade())} · ${$("semester").value==="1"?"الفصل الدراسي الأول":"الفصل الدراسي الثاني"} — حددي درسًا أو أكثر.`;
+}
+$("showLessons").addEventListener("click",()=>{
+ if(!$("studentName").value.trim()){alert("اكتبي اسم الطالبة لإصدار شهادة الإنجاز.");$("studentName").focus();return;}
+ if(!currentGrade()){alert("اختاري الصف الدراسي أولًا.");return;}
+ renderLessons();showPanel("lessonPanel");
+});
+$("selectAll").onclick=()=>document.querySelectorAll("#lessons input").forEach(x=>x.checked=true);
+$("clearAll").onclick=()=>document.querySelectorAll("#lessons input").forEach(x=>x.checked=false);
+$("backSetup").onclick=()=>showPanel("setup");
+$("startQuiz").onclick=()=>{
+ const chosen=[...document.querySelectorAll("#lessons input:checked")].map(x=>x.value);
+ if(!chosen.length){alert("حددي درسًا واحدًا على الأقل.");return;}
+ selected=chosen;quiz=listForSelection().filter(q=>selected.includes(q.u+"|"+q.l));answers={};index=0;renderQuestion();showPanel("quizPanel");
+};
+function renderQuestion(){
+ const q=quiz[index];if(!q)return;
+ $("qCount").textContent=`السؤال ${index+1} من ${quiz.length}`;
+ $("qTopic").textContent=q.u+" · "+q.l;
+ $("progressBar").style.width=((index+1)/quiz.length*100)+"%";
+ $("questionText").textContent=q.q;$("answers").innerHTML="";$("feedback").className="feedback hidden";$("feedback").textContent="";
+ q.a.forEach((a,i)=>{
+  const b=document.createElement("button");b.className="answer";b.innerHTML=`<span class="letter">${["أ","ب","ج","د"][i]}</span><span>${a}</span>`;
+  if(answers[index]===i)b.classList.add("selected");
+  if(answers[index]!==undefined){b.disabled=true;if(i===q.c)b.classList.add("correct");else if(i===answers[index])b.classList.add("wrong");}
+  b.onclick=()=>{answers[index]=i;renderQuestion();const fb=$("feedback");fb.classList.remove("hidden");fb.classList.add(i===q.c?"good":"bad");fb.textContent=(i===q.c?"إجابة صحيحة! ":"ليست الإجابة الصحيحة. ")+q.e;};
+  $("answers").appendChild(b);
+ });
+ if(answers[index]!==undefined){const fb=$("feedback");fb.classList.remove("hidden");fb.classList.add(answers[index]===q.c?"good":"bad");fb.textContent=(answers[index]===q.c?"إجابة صحيحة! ":"الإجابة الصحيحة موضحة باللون الأخضر. ")+q.e;}
+ $("prevQuestion").disabled=index===0;
+ $("nextQuestion").textContent=index===quiz.length-1?"عرض النتيجة ←":"التالي ←";
+}
+$("prevQuestion").onclick=()=>{if(index>0){index--;renderQuestion();}};
+$("nextQuestion").onclick=()=>{if(index<quiz.length-1){index++;renderQuestion();}else finish();};
+$("finishQuiz").onclick=()=>{if(confirm("هل تريدين إنهاء الاختبار وعرض النتيجة؟"))finish();};
+function finish(){
+ const correct=quiz.reduce((n,q,i)=>n+(answers[i]===q.c?1:0),0),percent=Math.round(correct/quiz.length*100);
+ lastResult={name:$("studentName").value.trim(),grade:currentGrade(),semester:$("semester").value,correct,total:quiz.length,percent,wrong:quiz.length-correct,date:new Date().toLocaleDateString("ar-SA"),questions:quiz.map((q,i)=>({...q,userAnswer:answers[i]}))};
+ localStorage.setItem("digitalSkillsQuizLastResult",JSON.stringify(lastResult));
+ $("scoreStat").textContent=`${correct}/${quiz.length}`;$("percentStat").textContent=percent+"%";$("wrongStat").textContent=quiz.length-correct;
+ $("review").innerHTML="";
+ lastResult.questions.forEach((q,i)=>{
+  const div=document.createElement("div");div.className="review-item";
+  const user=q.userAnswer===undefined?"لم تتم الإجابة":q.a[q.userAnswer];
+  div.innerHTML=`<strong>${i+1}. ${q.q}</strong><p class="${q.userAnswer===q.c?"correct-text":"wrong-text"}">إجابتك: ${user}</p><p class="correct-text">الإجابة الصحيحة: ${q.a[q.c]}</p><p class="note">التوضيح: ${q.e}</p>`;
+  $("review").appendChild(div);
+ });
+ showPanel("resultPanel");
+}
+$("makeCertificate").onclick=()=>{
+ if(!lastResult){alert("أنهي الاختبار أولًا.");return;}
+ $("certName").textContent=lastResult.name;$("certGrade").textContent=gradeLabel(lastResult.grade);$("certPercent").textContent=lastResult.percent+"%";$("certDate").textContent=lastResult.date;
+ showPanel("certificatePanel");
+};
+$("retry").onclick=()=>{answers={};index=0;renderQuestion();showPanel("quizPanel");};
+$("newSelection").onclick=()=>{showPanel("lessonPanel");renderLessons();};
+$("printResult").onclick=()=>window.print();
+$("printCertificate").onclick=()=>window.print();
+$("backResults").onclick=()=>showPanel("resultPanel");
+$("resumeBtn").onclick=()=>{
+ try{const r=JSON.parse(localStorage.getItem("digitalSkillsQuizLastResult"));if(!r){alert("لا توجد نتيجة محفوظة على هذا الجهاز حتى الآن.");return;}lastResult=r;
+ $("scoreStat").textContent=`${r.correct}/${r.total}`;$("percentStat").textContent=r.percent+"%";$("wrongStat").textContent=r.wrong;
+ $("review").innerHTML="";r.questions.forEach((q,i)=>{const d=document.createElement("div");d.className="review-item";d.innerHTML=`<strong>${i+1}. ${q.q}</strong><p class="${q.userAnswer===q.c?"correct-text":"wrong-text"}">إجابتك: ${q.userAnswer===undefined?"لم تتم الإجابة":q.a[q.userAnswer]}</p><p class="correct-text">الإجابة الصحيحة: ${q.a[q.c]}</p><p class="note">التوضيح: ${q.e}</p>`;$("review").appendChild(d);});showPanel("resultPanel");
+ }catch(e){alert("تعذر استعادة النتيجة المحفوظة.");}
+};
+</script>
+</body></html>
